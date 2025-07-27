@@ -17,7 +17,8 @@ export class S3UploadService {
     try {
       await this.s3Client.createBucket();
     } catch (error) {
-      console.error("Bucket already exists or error:", error);
+      console.error("Error ensuring bucket exists:", error);
+      throw error;
     }
   }
 
@@ -32,6 +33,8 @@ export class S3UploadService {
     signedUrl: string
   ): Promise<Response> {
     try {
+      await this.ensureBucketExists();
+      
       const response = await fetch(signedUrl, {
         method: "PUT",
         body: customFile.file,
