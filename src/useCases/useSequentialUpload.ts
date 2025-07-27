@@ -39,19 +39,13 @@ export const useSequentialUpload = () => {
     try {
       const results = await uploadFilesSequentially(files);
 
-      Promise.all(results)
-        .then((responses) => {
-          responses.forEach((response) => {
-            if (response.ok) {
-              console.log("File uploaded successfully:", response);
-            } else {
-              console.error("File upload failed:", response.statusText);
-            }
-          });
-        })
-        .catch((error) => {
-          console.error("Error during file upload:", error);
-        });
+      results.forEach((response) => {
+        if (response.ok) {
+          console.log("File uploaded successfully:", response);
+        } else {
+          console.error("File upload failed:", response.statusText);
+        }
+      });
     } catch (error) {
       console.error("Upload error:", error);
     }
