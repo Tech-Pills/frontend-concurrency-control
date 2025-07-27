@@ -15,7 +15,7 @@ Nos deparamos com um upload de arquivos para um storage (Amazon S3 no nosso caso
 
 Temos N maneiras de fazer isso hoje, começaremos pela sequencial e subiremos duas escadas de complexidade e também de performance.
 
-Esse é o projeto guia que usaremos, qualquer informação relacionada às tecnologias e setup estão centralizadas nele, mas o mais importante agora é entendermos os conceitos e qual problema queremos resolver REPLACEME
+Esse é o projeto guia que usaremos, qualquer informação relacionada às tecnologias e setup estão centralizadas nele, mas o mais importante agora é entendermos os conceitos e qual problema queremos resolver.
 
 Iremos simular um servidor S3 localmente com [localstack](https://github.com/localstack/localstack), mas isso não importa, para um caso real é só fazermos as edições necessárias no nosso client, porque iremos consumir a mesma SDK da aws-s3.
 

@@ -15,7 +15,7 @@ We're faced with uploading files to storage (Amazon S3 in our case) and how we c
 
 There are N ways to do this today. We'll start with sequential and climb two steps of complexity and performance.
 
-This is the guide project we'll use. Any information related to technologies and setup is centralized in it, but the most important thing now is to understand the concepts and what problem we want to solve REPLACEME
+This is the guide project we'll use. Any information related to technologies and setup is centralized in it, but the most important thing now is to understand the concepts and what problem we want to solve.
 
 We'll simulate an S3 server locally with [localstack](https://github.com/localstack/localstack), but that doesn't matter. For a real case, we just need to make the necessary edits to our client, because we'll consume the same AWS S3 SDK.
 
