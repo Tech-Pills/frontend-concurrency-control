@@ -1,4 +1,5 @@
 # Frontend Concurrency Control
+![alt text](robot-delivery.png)
 
 > LLM improved English version is here: REPLACEME
 

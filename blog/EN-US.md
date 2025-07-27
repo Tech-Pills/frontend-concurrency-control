@@ -1,4 +1,5 @@
 # Frontend Concurrency Control
+![alt text](robot-delivery.png)
 
 > Raw Portuguese version is here:
 
