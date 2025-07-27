@@ -5,7 +5,7 @@ import "./App.css";
 import { useSequentialUpload } from "./useCases/useSequentialUpload";
 
 function App() {
-  const { files, setFiles, handleSequentialUpload, resetUploads } =
+  const { files, setFiles, handleSequentialUpload, resetUploads, runTime, isUploading } =
     useSequentialUpload();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,11 +45,13 @@ function App() {
 
         {files.length > 0 && (
           <div>
+            {runTime && <p>Last upload time: {runTime}</p>}
             <button
               type="button"
               onClick={handleSequentialUpload}
+              disabled={isUploading}
             >
-              Upload Sequentially
+              {isUploading ? "Uploading..." : "Upload Sequentially"}
             </button>
             <button type="button" onClick={resetUploads}>
               Reset

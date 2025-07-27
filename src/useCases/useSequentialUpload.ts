@@ -6,6 +6,9 @@ export const useSequentialUpload = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [uploadService] = useState(() => new S3UploadService());
 
+  const [runTime, setRunTime] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+
   async function uploadFilesSequentially(files: File[]): Promise<Response[]> {
     const results: Response[] = [];
     const customFiles: CustomFile[] = [];
@@ -36,6 +39,10 @@ export const useSequentialUpload = () => {
   const handleSequentialUpload = async () => {
     if (files.length === 0) return;
 
+    setIsUploading(true);
+    setRunTime(null);
+    const startTime = performance.now();
+
     try {
       const results = await uploadFilesSequentially(files);
 
@@ -48,6 +55,13 @@ export const useSequentialUpload = () => {
       });
     } catch (error) {
       console.error("Upload error:", error);
+    } finally {
+      const endTime = performance.now();
+      console.log(
+        `Sequential upload completed in ${(endTime - startTime).toFixed(2)} ms`
+      );
+      setRunTime(`${(endTime - startTime).toFixed(2)} ms`);
+      setIsUploading(false);
     }
   };
 
@@ -58,6 +72,8 @@ export const useSequentialUpload = () => {
   return {
     files,
     setFiles,
+    runTime,
+    isUploading,
 
     handleSequentialUpload,
     resetUploads,
