@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.850.0",
     "@aws-sdk/s3-request-presigner": "^3.850.0",
+    "async-mutex": "^0.5.0",
     "crypto-js": "^4.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
